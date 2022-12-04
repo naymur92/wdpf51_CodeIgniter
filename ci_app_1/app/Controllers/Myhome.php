@@ -3,12 +3,15 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ProductModel;
 
 class Myhome extends BaseController
 {
     public function index()
     {
-        return view('index');
+        $products = new ProductModel();
+        $data['products'] = $products->orderBy('id', 'DESC')->findAll();
+        return view('index', $data);
     }
 
     public function about()
