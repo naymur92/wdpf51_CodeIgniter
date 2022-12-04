@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Add User</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +29,6 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/users">All Users</a></li>
             <li><a class="dropdown-item" href="/users/add">Add User</a></li>
-            <!-- <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
           </ul>
         </li>
         <li class="nav-item">
@@ -46,14 +44,37 @@
   <div class="container mt-5">
     <div class="row">
       <!-- Content Area Starts -->
-      <div class="card">
-        <div class="card-header bg-warning">
-          <h1>Home page</h1>
-        </div>
-        <div class="card-body">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, optio minus illo beatae voluptatem aliquid ut. Temporibus voluptatem aspernatur quibusdam nisi deleniti ipsa ut neque. Fugit nobis dolores perferendis soluta!</p>
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <div class="card">
+            <div class="card-header bg-warning">
+              <h1>User Insert Form</h1>
+            </div>
+            <div class="card-body">
+
+              <?php $validation = \Config\Services::validation(); ?>
+              <form action="<?= site_url('users/post') ?>" method="post">
+                <div class="form-group">
+                  <label for="_name"><strong>Name: </strong></label>
+                  <input type="text" id="_name" name='name' placeholder="Enter Name" class="form-control">
+                  <!-- Error -->
+                  <?php if ($validation->getError('name')) : ?>
+                    <div class="alert alert-danger mt-2"><?= $validation->getError('name') ?></div>
+                  <?php endif; ?>
+                </div>
+                <div class="form-group">
+                  <label for="_email"><strong>Email: </strong></label>
+                  <input type="text" id="_email" name='email' placeholder="Enter Email" class="form-control">
+                </div>
+
+                <input type="submit" name="submit" value="ADD USER" class="btn btn-primary my-2">
+
+              </form>
+            </div>
+          </div>
         </div>
       </div>
+
       <!-- Content Area Ends -->
     </div>
   </div>
