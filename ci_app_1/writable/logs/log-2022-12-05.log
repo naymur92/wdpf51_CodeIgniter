@@ -6,3 +6,89 @@ in APPPATH\Controllers\Myhome.php on line 12.
  4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-05 14:31:40 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/BaseModel.php(585): CodeIgniter\Model->doFindAll()
+#6 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/app/Controllers/Myhome.php(24): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(927): App\Controllers\Myhome->products()
+#8 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/BaseModel.php(585): CodeIgniter\Model->doFindAll()
+#5 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/app/Controllers/Myhome.php(24): CodeIgniter\BaseModel->findAll()
+#6 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(927): App\Controllers\Myhome->products()
+#7 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2022-12-05 14:31:40 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(585): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Controllers/Myhome.php(24): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Myhome->products()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2022-12-05 14:35:15 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/BaseModel.php(585): CodeIgniter\Model->doFindAll()
+#6 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/app/Controllers/Myhome.php(24): CodeIgniter\BaseModel->findAll()
+#7 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(927): App\Controllers\Myhome->products()
+#8 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/BaseModel.php(585): CodeIgniter\Model->doFindAll()
+#5 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/app/Controllers/Myhome.php(24): CodeIgniter\BaseModel->findAll()
+#6 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(927): App\Controllers\Myhome->products()
+#7 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/wdpf51_CodeIgniter/ci_app_1/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2022-12-05 14:35:15 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(585): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Controllers/Myhome.php(24): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Myhome->products()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')

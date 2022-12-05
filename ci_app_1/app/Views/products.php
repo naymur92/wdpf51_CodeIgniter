@@ -7,20 +7,38 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <?php foreach ($products as $product) : ?>
-            <div class="col-4 my-2">
-              <div class="card">
-                <div class="card-header">
-                  <h4><?php echo $product['name'] ?></h4>
-                </div>
-                <div class="card-body">
-                  <img src="assets/images/product/<?php echo $product['thumbnail'] ?>" alt="" class="img-thumbnail">
-                  <p class="my-2"><strong>Description: </strong><?php echo $product['description'] ?></p>
-                  <p class="my-2"><strong>Price: </strong><?php echo $product['price'] ?></p>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>SL. No.</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $count = 1;
+              foreach ($products as $product) :
+              ?>
+                <tr>
+                  <td><?= $count; ?></td>
+                  <td><?= $product['name'] ?></td>
+                  <td><?= $product['category'] ?></td>
+                  <td><?= $product['price'] ?></td>
+                  <td>
+                    <a href="/product/edit/<?= $product['id']; ?>" class="text-primary mx-2"><i class="fa fa-pen"></i></a>
+                    <a href="/product/delete/<?= $product['id']; ?>" class="text-danger mx-2"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+              <?php
+                $count++;
+              endforeach;
+              ?>
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>
