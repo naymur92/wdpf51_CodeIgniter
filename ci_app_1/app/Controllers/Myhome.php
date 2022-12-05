@@ -9,18 +9,47 @@ class Myhome extends BaseController
 {
     public function index()
     {
+        $title['title'] = 'Home';
+
+        $content = view('templates/header', $title);
+        $content .= view('index');
+        $content .= view('templates/footer');
+
+        return $content;
+    }
+
+    public function products()
+    {
         $products = new ProductModel();
         $data['products'] = $products->orderBy('id', 'DESC')->findAll();
-        return view('index', $data);
+
+        $title['title'] = 'Products';
+        $content = view('templates/header', $title);
+        $content .= view('products', $data);
+        $content .= view('templates/footer');
+
+        return $content;
     }
 
     public function about()
     {
-        return view('about_us');
+        $title['title'] = 'About US';
+
+        $content = view('templates/header', $title);
+        $content .= view('about_us');
+        $content .= view('templates/footer');
+
+        return $content;
     }
 
     public function contact()
     {
-        return view('contact_us');
+        $title['title'] = 'Contact Us';
+
+        $content = view('templates/header', $title);
+        $content .= view('contact_us');
+        $content .= view('templates/footer');
+
+        return $content;
     }
 }

@@ -1,0 +1,8 @@
+CRITICAL - 2022-12-05 11:14:51 --> Undefined property: App\Controllers\Myhome::$load
+in APPPATH\Controllers\Myhome.php on line 12.
+ 1 APPPATH\Controllers\Myhome.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Myhome::$load', 'APPPATH\\Controllers\\Myhome.php', 12, [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Myhome->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Myhome))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
