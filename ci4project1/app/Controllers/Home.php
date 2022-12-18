@@ -8,4 +8,14 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+
+    public function about()
+    {
+        return "Hello";
+    }
+
+    public function user($id)
+    {
+        return "You have given this ID $id";
+    }
 }
