@@ -13,6 +13,7 @@
             <th>SL. No.</th>
             <th>Name</th>
             <th>Phone</th>
+            <th>Email</th>
             <th>Address</th>
             <th>Action</th>
           </tr>
@@ -27,10 +28,12 @@
               <td><?= $count ?></td>
               <td><?= $student['name'] ?></td>
               <td><?= $student['phone'] ?></td>
+              <td><?= $student['email'] ?></td>
               <td><?= $student['address'] ?></td>
               <td>
-                <a href="/students/<?= $student['id'] ?>" class="btn btn-outline-primary mx-1"><i class="fa fa-eye"></i></a>
-                <a href="/edit/<?= $student['id'] ?>" class="btn btn-outline-success mx-1"><i class="fa fa-pen"></i></a>
+                <a href="student/show/<?= $student['id'] ?>" class="btn btn-outline-primary mx-1"><i class="fa fa-eye"></i></a>
+                <a href="student/edit/<?= $student['id'] ?>" class="btn btn-outline-success mx-1"><i class="fa fa-pen"></i></a>
+                <a href="student/delete/<?= $student['id'] ?>" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           <?php $count++;

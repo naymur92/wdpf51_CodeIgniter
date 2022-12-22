@@ -39,8 +39,16 @@ function isActive($param)
         <li class="nav-item">
           <a class="nav-link <?= isActive('contact'); ?>" href="/contact">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link <?= isActive('students'); ?>" href="/students">Students</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Students
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item <?= isActive('student'); ?>" href="/student">All Students</a></li>
+            <li><a class="dropdown-item <?= isActive('new'); ?>" href="/student/new">Add Student</a></li>
+            <!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
