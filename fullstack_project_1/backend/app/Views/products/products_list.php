@@ -4,9 +4,21 @@
 
 <?php if (session()->has('msg')) : ?>
   <script>
-    alert('<?= session()->msg; ?>');
+    function tempAlert(msg, duration) {
+      var el = document.createElement("div");
+      el.setAttribute('class', 'alert alert-success text-white');
+      el.setAttribute("style", "position:absolute;top:20%;left:50%;");
+      el.innerHTML = msg;
+      setTimeout(function() {
+        el.parentNode.removeChild(el);
+      }, duration);
+      document.body.appendChild(el);
+    }
+
+    tempAlert('<?= session()->msg; ?>', 5000);
   </script>
 <?php endif; ?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -77,10 +89,16 @@
                         <img src="/assets/images/products/<?= $product['product_image']; ?>" class="img-thumbnail" width="100px" alt="">
                       </td>
                       <td><?= date("d M, Y - h:i A", strtotime($product['created_at'])); ?></td>
-                      <td>
+                      <td class="d-flex justify-content-center align-items-center">
                         <a href="<?= site_url('products/show/' . $product['id']); ?>" class="mx-2"><i class="fa fa-eye text-primary"></i></a>
+
                         <a href="<?= site_url('products/edit/' . $product['id']); ?>" class="mx-2"><i class="fa fa-pen text-success"></i></a>
-                        <a href="<?= base_url('products/delete/' . $product['id']); ?>" class="mx-2 delete"><i class="fa fa-trash text-danger"></i></a>
+                        <span></span>
+                        <form action="<?= base_url('products/delete/' . $product['id']); ?>" method="post" class="mx-2">
+                          <?= csrf_field(); ?>
+                          <button type="submit" class="btn p-0"><i class="fa fa-trash text-danger" onclick="return confirm('Are you sure want to delete?')"></i></button>
+                        </form>
+
                       </td>
                     </tr>
                   <?php
@@ -116,15 +134,3 @@
 <!-- /.content-wrapper -->
 
 <?= view('layouts/footer_data-table'); ?>
-
-<script>
-  $(function() {
-    $(".delete").click(function(e) {
-      e.preventDefault();
-      $.post(this.href, function() {
-        alert('Successfully Deleted');
-        location.reload();
-      });
-    });
-  });
-</script>

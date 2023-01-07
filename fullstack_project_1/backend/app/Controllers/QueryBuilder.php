@@ -124,11 +124,11 @@ class QueryBuilder extends BaseController
 
     // 8
     $builder = $db_con->table('orders, customers');
-    $builder->select('customers.firstName');
+    $builder->select('customers.customerName');
     $builder->selectCount('orders.orderNumber', 'Total Orders');
     $builder->where('orders.status = "Shipped"');
     $builder->where('orders.customerNumber = customers.customerNumber');
-    $builder->groupBy('customers.firstName');
+    $builder->groupBy('customers.customerName');
 
 
     $raw = $builder->get();
