@@ -97,25 +97,38 @@ class QueryBuilder extends BaseController
     // // 5
     // $builder = $db_con->table('orders, customers, orderdetails');
     // $builder->select('orders.orderNumber, customerName, phone, city, orderDate, status,');
-    // $builder->selectSum('orderdetails.priceEach')->groupBy('orderNumber');
-    // $builder->selectSum('orderdetails.quantityOrdered')->groupBy('orderNumber');
     // $builder->where('orders.customerNumber = customers.customerNumber');
+    // $builder->selectSum('orderdetails.priceEach', 'Total Price');
+    // $builder->selectSum('orderdetails.quantityOrdered', 'Total Quantity')->groupBy('orderNumber');
     // $builder->where('orders.orderNumber = orderdetails.orderNumber');
-
-    $builder = $db_con->table('orderdetails');
-    $builder->select('orderNumber')->selectSum('priceEach')->groupBy('orderNumber');
 
 
     // // 6
-    // $builder = $db_con->table('orders, orderdetails, customers, products');
-    // $builder->select('customerName, city, orders.orderNumber, orderDate, orderdetails.productCode, productName, quantityOrdered, priceEach, MSRP');
+    // $builder = $db_con->table('orders, orderdetails, customers');
+    // $builder->select('customerName, city, orders.orderNumber, orderDate');
+    // $builder->selectSum('orderdetails.priceEach', 'Total Price');
+    // $builder->selectSum('orderdetails.quantityOrdered', 'Total Quantity');
     // $builder->where('orders.orderNumber = orderdetails.orderNumber');
     // $builder->where('orders.customerNumber = customers.customerNumber');
-    // $builder->where('orderdetails.productCode = products.productCode');
+    // $builder->groupBy('orders.orderNumber');
 
 
-    // 7
-    // $builder = $db_con->table();
+    // // 7
+    // $builder = $db_con->table('orders, customers');
+    // $builder->select('customers.country');
+    // $builder->selectCount('orders.orderNumber', 'Total Orders');
+    // $builder->where('orders.customerNumber = customers.customerNumber');
+    // $builder->where('orders.status = "Shipped"');
+    // $builder->groupBy('customers.country');
+
+
+    // 8
+    $builder = $db_con->table('orders, customers');
+    $builder->select('customers.customerName');
+    $builder->selectCount('orders.orderNumber', 'Total Orders');
+    $builder->where('orders.status = "Shipped"');
+    $builder->where('orders.customerNumber = customers.customerNumber');
+    $builder->groupBy('customers.customerName');
 
 
     $raw = $builder->get();

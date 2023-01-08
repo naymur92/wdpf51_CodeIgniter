@@ -55,7 +55,6 @@
       </table>
       <!-- pagination -->
       <?php echo $pager->links('group1', 'bs_full'); ?>
-
     </div>
   </div>
 </div>
