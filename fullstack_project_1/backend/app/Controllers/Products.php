@@ -262,7 +262,8 @@ class Products extends ResourceController
                 unlink($this->upload_path . $product_image);
             }
 
-            return redirect()->to(site_url('/products'))->with('msg', 'Successfull Deleted');
+            session()->setFlashdata('msg', 'Successfull Deleted');
+            // return redirect()->to(site_url('/products'))->with('msg', 'Successfull Deleted');
         }
     }
 }
