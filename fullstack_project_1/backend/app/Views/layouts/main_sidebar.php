@@ -117,6 +117,29 @@ function isOpen($param)
             </li>
           </ul>
         </li>
+        <li class="nav-item <?= isOpen('reports'); ?>">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-clipboard-list"></i>
+            <p>
+              Reporting
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= site_url('reports/stafflist'); ?>" class="pl-5 nav-link <?= isActive('stafflist'); ?>">
+                <!-- <i class="fa fa-solid fa-list mr-2"></i> -->
+                <p>Office wise staff List</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= site_url('reports/ordersummary'); ?>" class="pl-5 nav-link <?= isActive('ordersummary'); ?>">
+                <!-- <i class="fas fa-plus-square mr-2"></i> -->
+                <p>Orders Summary</p>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -38,6 +38,11 @@ $routes->set404Override();
 $routes->get('/', 'Dashboard::index');
 $routes->presenter('products');
 
+$routes->get('reports/stafflist', 'ReportingController::staff_list');
+$routes->get('reports/allstaff', 'ReportingController::allstaff');
+$routes->get('reports/ordersummary', 'ReportingController::order_summary');
+$routes->get('reports/mkordersummary', 'ReportingController::make_order_summary');
+
 $routes->get('login', 'AuthSignIn::index');
 $routes->get('register', 'AuthRegister::index');
 

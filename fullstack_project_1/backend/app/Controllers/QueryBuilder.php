@@ -55,7 +55,7 @@ class QueryBuilder extends BaseController
 
   public function query()
   {
-    $db_con = \Config\Database::connect('query_builder');
+    $db_con = \Config\Database::connect('sample_db');
 
     // // 1
     // $builder = $db_con->table('employees');

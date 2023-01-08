@@ -50,7 +50,7 @@ class Database extends Config
         'port'     => 3306,
     ];
 
-    public $query_builder = [
+    public $sample_db = [
         'DSN'      => '',
         'hostname' => '127.0.0.1',
         'username' => 'root',
