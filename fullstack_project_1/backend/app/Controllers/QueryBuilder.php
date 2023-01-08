@@ -69,6 +69,7 @@ class QueryBuilder extends BaseController
     // $builder->where("jobTitle = 'Sales Rep'");
     // $builder->where("reportsTo = 1143");
 
+    // // Another Process
     // $subquery = $db_con->table('employees')->select('firstName')->where('employeeNumber = 1143');
     // $builder = $db_con->table('employees');
     // $builder->select('firstName, lastName, email');
@@ -89,6 +90,7 @@ class QueryBuilder extends BaseController
     // $builder->select('customerName, phone, city, orderNumber, orderDate, status');
     // $builder->where('orders.customerNumber = customers.customerNumber');
 
+    // // Another Process
     // $builder = $db_con->table('orders');
     // $builder->select('customerName, phone, city, orderNumber, orderDate, status');
     // $builder->join('customers', 'orders.customerNumber = customers.customerNumber');
@@ -122,13 +124,40 @@ class QueryBuilder extends BaseController
     // $builder->groupBy('customers.country');
 
 
-    // 8
-    $builder = $db_con->table('orders, customers');
-    $builder->select('customers.customerName');
-    $builder->selectCount('orders.orderNumber', 'Total Orders');
-    $builder->where('orders.status = "Shipped"');
-    $builder->where('orders.customerNumber = customers.customerNumber');
-    $builder->groupBy('customers.customerName');
+    // // 8
+    // $builder = $db_con->table('orders, customers');
+    // $builder->select('customers.customerName');
+    // $builder->selectCount('orders.orderNumber', 'Total Orders');
+    // $builder->where('orders.status = "Shipped"');
+    // $builder->where('orders.customerNumber = customers.customerNumber');
+    // $builder->groupBy('customers.customerName');
+
+
+    // // 9
+    // $builder = $db_con->table('employees, customers, orders');
+    // $builder->select('CONCAT(employees.firstName, " ", employees.lastName) AS "Employee Name"');
+    // $builder->selectCount('orders.orderNumber', 'Total Sales');
+    // $builder->where('orders.status = "Shipped"');
+    // $builder->where('orders.customerNumber = customers.customerNumber');
+    // $builder->where('customers.salesRepEmployeeNumber = employees.employeeNumber');
+    // $builder->groupBy('employees.employeeNumber');
+    // $builder->orderBy('employees.firstName');
+
+
+    // // 10
+    // $builder = $db_con->table('customers, orders');
+    // $builder->select('customers.city');
+    // $builder->selectCount('orders.orderNumber', 'Total Orders');
+    // $builder->where('orders.status = "Shipped"');
+    // $builder->where('orders.customerNumber = customers.customerNumber');
+    // $builder->groupBy('customers.city');
+
+
+    // 11
+    $builder = $db_con->table('orders');
+    $builder->select('CONCAT(year(orderDate), "-", month(orderDate)) as "Selected Month"');
+    $builder->selectCount('orderNumber', "Total Orders");
+    $builder->groupBy('year(orderDate), month(orderDate)');
 
 
     $raw = $builder->get();
@@ -136,5 +165,6 @@ class QueryBuilder extends BaseController
 
     echo "<pre>";
     print_r($data);
+    echo "</pre>";
   }
 }
