@@ -17,6 +17,7 @@ class ReportingController extends BaseController
     // dd($data);
     return view('reportings/staff_lists', $data);
   }
+
   public function allstaff()
   {
     $officeCode = $this->request->getGet('offcode');
@@ -31,12 +32,24 @@ class ReportingController extends BaseController
 
     $data = $builder->get()->getResultArray();
 
-    // return view('reportings/staff_table', $data);
+    $output = '
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>SL No.</th>
+          <th>Employee Name</th>
+          <th>Email</th>
+          <th>Job Title</th>
+          <th>City</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+    ';
 
-    $output = "";
     foreach ($data as $index => $emp) {
       $output .= "<tr>";
-      $output .= "<td>" . $index + 1 . "</td>";
+      $output .= "<td>" . ($index + 1) . "</td>";
       $output .= "<td>" . $emp['employeeName'] . "</td>";
       $output .= "<td>" . $emp['email'] . "</td>";
       $output .= "<td>" . $emp['jobTitle'] . "</td>";
@@ -44,6 +57,20 @@ class ReportingController extends BaseController
       $output .= "<td>" . $emp['country'] . "</td>";
       $output .= "</tr>";
     }
+    $output .= '
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>SL No.</th>
+          <th>Employee Name</th>
+          <th>Email</th>
+          <th>Job Title</th>
+          <th>City</th>
+          <th>Country</th>
+        </tr>
+      </tfoot>
+    </table>
+    ';
 
     echo $output;
   }
@@ -85,22 +112,22 @@ class ReportingController extends BaseController
     $data = $builder->get()->getResultArray();
 
     $output = '
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>SL No.</th>
-            <th>Customer Name</th>
-            <th>Phone</th>
-            <th>City</th>
-            <th>Order Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>SL No.</th>
+          <th>Customer Name</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Order Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
     ';
     foreach ($data as $index => $order) {
       $output .= "<tr>";
-      $output .= "<td>" . $index + 1 . "</td>";
+      $output .= "<td>" . ($index + 1) . "</td>";
       $output .= "<td>" . $order['customerName'] . "</td>";
       $output .= "<td>" . $order['phone'] . "</td>";
       $output .= "<td>" . $order['city'] . "</td>";

@@ -128,8 +128,15 @@
         },
         function(data) {
           $('#data_container').html(data);
-          // $('tbody').first().html(data);
-          // document.getElementById("report_form").reset();
+
+          // This for data table
+          $('#example1').DataTable({
+            "destroy": true, //use for reinitialize datatable
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         }
       );
     });

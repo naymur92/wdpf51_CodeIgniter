@@ -49,7 +49,7 @@
               <h3 class="card-title">Staff Lists</h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            <div class="card-body" id="data_container">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
@@ -101,8 +101,16 @@
           offcode: code
         },
         function(data) {
-          $('tbody').first().html(data);
-          // document.getElementById("report_form").reset();
+          $('#data_container').html(data);
+
+          // This for data table
+          $('#example1').DataTable({
+            "destroy": true, //use for reinitialize datatable
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         }
       );
     });
