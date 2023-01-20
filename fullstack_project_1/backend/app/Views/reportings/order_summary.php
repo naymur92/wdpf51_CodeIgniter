@@ -121,7 +121,7 @@
       var status = $('#status').val();
 
       $.get(
-        '<?= base_url('reports/mkordersummary') ?>', {
+        '<?= base_url('reportings/makeordersummary') ?>', {
           startdate,
           enddate,
           status
